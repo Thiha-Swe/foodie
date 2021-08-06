@@ -12,7 +12,11 @@
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
 
-
+    <style>
+        * {
+            touch-action: manipulation;
+        }
+    </style>
     <title>Foodie</title>
 
 
@@ -532,20 +536,6 @@
                 else if (document.selection) { document.selection.empty(); }
             }
 
-            $('body').bind('touchstart', function preventZoom(e) {
-                var t2 = e.timeStamp;
-                var t1 = $(this).data('lastTouch') || t2;
-                var dt = t2 - t1;
-                var fingers = e.originalEvent.touches.length;
-                $(this).data('lastTouch', t2);
-                if (!dt || dt > 500 || fingers > 1) {
-                    return; // not double-tap
-                }
-                e.preventDefault(); // double tap - prevent the zoom
-                // also synthesize click events we just swallowed up
-                $(e.target).trigger('click');
-
-            });
 
             //Original Chicken
             $("#plusOriginalChicken").click(function () {
