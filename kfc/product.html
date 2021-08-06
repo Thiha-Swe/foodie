@@ -1157,7 +1157,8 @@
 
                 $('#copyTextToUser').append("\n\n⚠️Delivery ဖိုးမပါ")
                 $('#copyTextToUser').select();
-                event.preventDefault()
+            ]
+                $("#copyTextToUser").keydown(false);
                 document.execCommand('copy');
             });
 
