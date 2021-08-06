@@ -527,6 +527,11 @@
                 return parts.join(".");
             }
 
+            function clearSelection() {
+                if (window.getSelection) { window.getSelection().removeAllRanges(); }
+                else if (document.selection) { document.selection.empty(); }
+            }
+
             //Original Chicken
             $("#plusOriginalChicken").click(function () {
                 $("#countOrignialChicken").attr("placeholder", countOrignialChicken).val(countOrignialChicken + 1).focus().blur();
@@ -1157,11 +1162,12 @@
 
                 $('#copyTextToUser').append("\n\n⚠️Delivery ဖိုးမပါ")
                 $('#copyTextToUser').select();
-                
-                document.execCommand('cut');                            
+
+                document.execCommand('cut');
+                clearSelection();
             });
 
- 
+
 
         });
     </script>
