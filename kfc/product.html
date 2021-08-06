@@ -54,7 +54,7 @@
 
                     </div>
                     <div class="row">
-                        <textarea id="copyTextToUser" style="opacity: 0;"></textarea>
+                        <textarea id="copyTextToUser" style="opacity: 0;" readonly></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -1157,8 +1157,7 @@
 
                 $('#copyTextToUser').append("\n\n⚠️Delivery ဖိုးမပါ")
                 $('#copyTextToUser').select();
-            
-                $("#copyTextToUser").keydown(false);
+                
                 document.execCommand('copy');
             });
 
