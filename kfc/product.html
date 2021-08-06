@@ -24,7 +24,7 @@
 
         <div class="container-fluid">
 
-            <h1 style="color: white;  font-family:'Kalam', serif;" id="navbarText">&#128523;Foodie</h1>
+            <h1 style="color: white;  font-family:'Kalam', serif;">&#128523;Foodie</h1>
             <ul class="mr-auto">
                 <button type="button" id="shoppingCart" class="btn" data-bs-toggle="modal" data-bs-target="#order">
                     <svg style="color: rgb(255, 255, 255);" xmlns="http://www.w3.org/2000/svg" width="50" height="45"
@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btnClose">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-danger" id="btnCopy">Copy</button>
                 </div>
             </div>
@@ -1158,13 +1158,10 @@
                 $('#copyTextToUser').append("\n\n⚠️Delivery ဖိုးမပါ")
                 $('#copyTextToUser').select();
                 
-                document.execCommand('copy');
-                $('.checkoutPrice').focus();                
+                document.execCommand('cut');                            
             });
 
-            $('#btnClose').on('click', function(){
-                $('#navbarText').focus();
-            });
+ 
 
         });
     </script>
