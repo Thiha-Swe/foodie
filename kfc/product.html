@@ -520,6 +520,13 @@
             var totalFoodie = 0;
             var checkoutPrice = 0;
 
+
+            function numberWithCommas(number) {
+                var parts = number.toString().split(".");
+                parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                return parts.join(".");
+            }
+
             //Original Chicken
             $("#plusOriginalChicken").click(function () {
                 $("#countOrignialChicken").attr("placeholder", countOrignialChicken).val(countOrignialChicken + 1).focus().blur();
@@ -536,12 +543,12 @@
                 if ($("#totalAmountFood>div").hasClass("divOriginalChicken")) {
                     $('.pOriginalChicken').text("Original Chicken x " + countOrignialChicken);
                     checkoutPrice += priceOrignialChicken;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
                 else {
                     $('#totalAmountFood').append("<div class='row divOriginalChicken'><p class='fs-6 pOriginalChicken'>Original Chicken x " + countOrignialChicken + "</p></div>");
                     checkoutPrice += priceOrignialChicken;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
             });
 
@@ -557,11 +564,11 @@
                     $("#shoppingCartMenuNumber").text(totalFoodie);
 
                     checkoutPrice -= priceOrignialChicken;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
                 else {
                     checkoutPrice -= priceOrignialChicken;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
 
                     $('.pOriginalChicken').text("Original Chicken x " + countOrignialChicken);
                     $("#shoppingCartMenuNumber").text(totalFoodie);
@@ -584,12 +591,12 @@
                 if ($("#totalAmountFood>div").hasClass("divSpicyChicken")) {
                     $('.pSpicyChicken').text("Spicy Chicken x " + countSpicyChicken);
                     checkoutPrice += priceSpicyChicken;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));;
                 }
                 else {
                     $('#totalAmountFood').append("<div class='row divSpicyChicken'><p class='fs-6 pSpicyChicken'>Spicy Chicken x " + countSpicyChicken + "</p></div>");
                     checkoutPrice += priceSpicyChicken;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
             });
 
@@ -605,11 +612,11 @@
                     $("#shoppingCartMenuNumber").text(totalFoodie);
 
                     checkoutPrice -= priceSpicyChicken;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
                 else {
                     checkoutPrice -= priceSpicyChicken;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
 
                     $('.pSpicyChicken').text("Spicy Chicken x " + countSpicyChicken);
                     $("#shoppingCartMenuNumber").text(totalFoodie);
@@ -632,12 +639,12 @@
                 if ($("#totalAmountFood>div").hasClass("divVclChicken")) {
                     $('.pVclChicken').text("Vietnamese Chili Lime Chicken x " + countVclChicken);
                     checkoutPrice += priceVclChicken;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
                 else {
                     $('#totalAmountFood').append("<div class='row divVclChicken'><p class='fs-6 pVclChicken'>Vietnamese Chili Lime Chicken x " + countVclChicken + "</p></div>");
                     checkoutPrice += priceVclChicken;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
             });
 
@@ -653,11 +660,11 @@
                     $("#shoppingCartMenuNumber").text(totalFoodie);
 
                     checkoutPrice -= priceVclChicken;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
                 else {
                     checkoutPrice -= priceVclChicken;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
 
                     $('.pVclChicken').text("Vietnamese Chili Lime Chicken x " + countVclChicken);
                     $("#shoppingCartMenuNumber").text(totalFoodie);
@@ -680,12 +687,12 @@
                 if ($("#totalAmountFood>div").hasClass("divCBurger")) {
                     $('.pCBurger').text("Colonel Burger x " + countCBurger);
                     checkoutPrice += priceCBurger;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
                 else {
                     $('#totalAmountFood').append("<div class='row divCBurger'><p class='fs-6 pCBurger'>Colonel Burger x " + countCBurger + "</p></div>");
                     checkoutPrice += priceCBurger;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
             });
 
@@ -701,11 +708,11 @@
                     $("#shoppingCartMenuNumber").text(totalFoodie);
 
                     checkoutPrice -= priceCBurger;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
                 else {
                     checkoutPrice -= priceCBurger;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
 
                     $('.pCBurger').text("Colonel Burger x " + countCBurger);
                     $("#shoppingCartMenuNumber").text(totalFoodie);
@@ -728,12 +735,12 @@
                 if ($("#totalAmountFood>div").hasClass("divZBurger")) {
                     $('.pZBurger').text("Zinger Burger x " + countZBurger);
                     checkoutPrice += priceZBurger;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
                 else {
                     $('#totalAmountFood').append("<div class='row divZBurger'><p class='fs-6 pZBurger'>Zinger Burger x " + countZBurger + "</p></div>");
                     checkoutPrice += priceZBurger;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
             });
 
@@ -749,11 +756,11 @@
                     $("#shoppingCartMenuNumber").text(totalFoodie);
 
                     checkoutPrice -= priceZBurger;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
                 else {
                     checkoutPrice -= priceZBurger;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
 
                     $('.pZBurger').text("Zinger Burger x " + countZBurger);
                     $("#shoppingCartMenuNumber").text(totalFoodie);
@@ -776,12 +783,12 @@
                 if ($("#totalAmountFood>div").hasClass("divPopcornChicken")) {
                     $('.pPopcornChicken').text("Popcorn Chicken x " + countPopcornChicken);
                     checkoutPrice += pricePopcornChicken;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
                 else {
                     $('#totalAmountFood').append("<div class='row divPopcornChicken'><p class='fs-6 pPopcornChicken'>Popcorn Chicken x " + countPopcornChicken + "</p></div>");
                     checkoutPrice += pricePopcornChicken;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
             });
 
@@ -797,11 +804,11 @@
                     $("#shoppingCartMenuNumber").text(totalFoodie);
 
                     checkoutPrice -= pricePopcornChicken;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
                 else {
                     checkoutPrice -= pricePopcornChicken;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
 
                     $('.pPopcornChicken').text("Popcorn Chicken x " + countPopcornChicken);
                     $("#shoppingCartMenuNumber").text(totalFoodie);
@@ -824,12 +831,12 @@
                 if ($("#totalAmountFood>div").hasClass("divFries")) {
                     $('.pFries').text("Fries x " + countFries);
                     checkoutPrice += priceFries;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
                 else {
                     $('#totalAmountFood').append("<div class='row divFries'><p class='fs-6 pFries'>Fries x " + countFries + "</p></div>");
                     checkoutPrice += priceFries;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
             });
 
@@ -845,11 +852,11 @@
                     $("#shoppingCartMenuNumber").text(totalFoodie);
 
                     checkoutPrice -= priceFries;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
                 else {
                     checkoutPrice -= priceFries;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
 
                     $('.pFries').text("Fries x " + countFries);
                     $("#shoppingCartMenuNumber").text(totalFoodie);
@@ -872,12 +879,12 @@
                 if ($("#totalAmountFood>div").hasClass("divEggTart")) {
                     $('.pEggTart').text("Egg Tart x " + countEggTart);
                     checkoutPrice += priceEggTart;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
                 else {
                     $('#totalAmountFood').append("<div class='row divEggTart'><p class='fs-6 pEggTart'>Egg Tart x " + countEggTart + "</p></div>");
                     checkoutPrice += priceEggTart;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
             });
 
@@ -893,11 +900,11 @@
                     $("#shoppingCartMenuNumber").text(totalFoodie);
 
                     checkoutPrice -= priceEggTart;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
                 else {
                     checkoutPrice -= priceEggTart;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
 
                     $('.pEggTart').text("Egg Tart x " + countEggTart);
                     $("#shoppingCartMenuNumber").text(totalFoodie);
@@ -920,12 +927,12 @@
                 if ($("#totalAmountFood>div").hasClass("divIcedMilo")) {
                     $('.pIcedMilo').text("Iced Milo x " + countIcedMilo);
                     checkoutPrice += priceIcedMilo;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
                 else {
                     $('#totalAmountFood').append("<div class='row divIcedMilo'><p class='fs-6 pIcedMilo'>Iced Milo x " + countIcedMilo + "</p></div>");
                     checkoutPrice += priceIcedMilo;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
             });
 
@@ -941,11 +948,11 @@
                     $("#shoppingCartMenuNumber").text(totalFoodie);
 
                     checkoutPrice -= priceIcedMilo;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
                 else {
                     checkoutPrice -= priceIcedMilo;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
 
                     $('.pIcedMilo').text("Iced Milo x " + countIcedMilo);
                     $("#shoppingCartMenuNumber").text(totalFoodie);
@@ -968,12 +975,12 @@
                 if ($("#totalAmountFood>div").hasClass("divIcedMocha")) {
                     $('.pIcedMocha').text("Iced Mocha x " + countIcedMocha);
                     checkoutPrice += priceIcedMocha;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
                 else {
                     $('#totalAmountFood').append("<div class='row divIcedMocha'><p class='fs-6 pIcedMocha'>Iced Mocha x " + countIcedMocha + "</p></div>");
                     checkoutPrice += priceIcedMocha;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
             });
 
@@ -989,11 +996,11 @@
                     $("#shoppingCartMenuNumber").text(totalFoodie);
 
                     checkoutPrice -= priceIcedMocha;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
                 else {
                     checkoutPrice -= priceIcedMocha;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
 
                     $('.pIcedMocha').text("Iced Mocha x " + countIcedMocha);
                     $("#shoppingCartMenuNumber").text(totalFoodie);
@@ -1016,12 +1023,12 @@
                 if ($("#totalAmountFood>div").hasClass("divIcedChocolate")) {
                     $('.pIcedChocolate').text("Iced Chocolate x " + countIcedChocolate);
                     checkoutPrice += priceIcedChocolate;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
                 else {
                     $('#totalAmountFood').append("<div class='row divIcedChocolate'><p class='fs-6 pIcedChocolate'>Iced Chocolate x " + countIcedChocolate + "</p></div>");
                     checkoutPrice += priceIcedChocolate;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
             });
 
@@ -1037,11 +1044,11 @@
                     $("#shoppingCartMenuNumber").text(totalFoodie);
 
                     checkoutPrice -= priceIcedChocolate;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
                 else {
                     checkoutPrice -= priceIcedChocolate;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
 
                     $('.pIcedChocolate').text("Iced Chocolate x " + countIcedChocolate);
                     $("#shoppingCartMenuNumber").text(totalFoodie);
@@ -1064,12 +1071,12 @@
                 if ($("#totalAmountFood>div").hasClass("divCocaCola")) {
                     $('.pCocaCola').text("Coca Cola x " + countCocaCola);
                     checkoutPrice += priceCocaCola;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
                 else {
                     $('#totalAmountFood').append("<div class='row divCocaCola'><p class='fs-6 pCocaCola'>Coca Cola x " + countCocaCola + "</p></div>");
                     checkoutPrice += priceCocaCola;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
             });
 
@@ -1085,22 +1092,16 @@
                     $("#shoppingCartMenuNumber").text(totalFoodie);
 
                     checkoutPrice -= priceCocaCola;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
                 }
                 else {
                     checkoutPrice -= priceCocaCola;
-                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                    $('.checkoutPrice').text("Total Amount: " + numberWithCommas(checkoutPrice));
 
                     $('.pCocaCola').text("Coca Cola x " + countCocaCola);
                     $("#shoppingCartMenuNumber").text(totalFoodie);
                 }
             })
-
-            function numberWithCommas(number) {
-                var parts = number.toString().split(".");
-                parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                return parts.join(".");
-            }
 
             $('#btnCopy').on('click', function () {
 
