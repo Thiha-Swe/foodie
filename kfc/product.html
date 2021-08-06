@@ -1,0 +1,1172 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kalam">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+
+
+    <title>Foodie</title>
+
+
+</head>
+
+<body>
+
+    <nav class="navbar sticky-top navbar-light bg-danger">
+
+        <div class="container-fluid">
+
+            <h1 style="color: white;  font-family:'Kalam', serif;">&#128523;Foodie</h1>
+            <ul class="mr-auto">
+                <button type="button" id="shoppingCart" class="btn" data-bs-toggle="modal" data-bs-target="#order">
+                    <svg style="color: rgb(255, 255, 255);" xmlns="http://www.w3.org/2000/svg" width="50" height="45"
+                        fill="currentColor" class="bi bi-basket3" viewBox="0 0 16 16">
+                        <path
+                            d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM3.394 15l-1.48-6h-.97l1.525 6.426a.75.75 0 0 0 .729.574h9.606a.75.75 0 0 0 .73-.574L15.056 9h-.972l-1.479 6h-9.21z" />
+                    </svg>
+                    <span id="shoppingCartMenuNumber" class="badge bg-dark">0</span>
+                </button>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="order" tabindex="-1" aria-labelledby="orderLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orderLabel">Order List</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid" id="totalAmountFood">
+                        <div class="row">
+                            <div class="p-3 mb-2 bg-danger text-white checkoutPrice">No Order</div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <textarea id="copyTextToUser" style="opacity: 0;"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" id="btnCopy">Copy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6" style="margin-top:25px">
+                <div class="card flex-row"
+                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.486), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 40px;">
+                    <img class="card-img-sm-left justify-content-center" style="height: 100px" src="product/1.png" />
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Original Chicken <span class="badge rounded-pill bg-dark">1,600</span>
+                        </h5>
+                        <div class="input-group">
+                            <span class="input-group-text" style="height: 30px" id="basic-addon1">
+                                <button class="btn disabled" id="minusOriginalChicken">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-dash-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" />
+                                    </svg>
+                                </button>
+                            </span>
+                            <input type="text" id="countOrignialChicken" class="form-control" style="height: 30px"
+                                disabled placeholder="0" aria-label="Username" aria-describedby="basic-addon1">
+                            <span class="input-group-text" style="height: 30px" id="basic-addon2">
+                                <button class="btn" id="plusOriginalChicken">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                                    </svg>
+                                </button>
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6" style="margin-top:25px">
+                <div class="card flex-row"
+                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.486), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 25px;">
+                    <img class="card-img-sm-left" style="height: 100px" src="product/1.png" />
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Spicy Chicken <span class="badge bg-dark">1,600</span></h5>
+                        <div class="input-group">
+                            <span class="input-group-text" style="height: 30px" id="basic-addon1">
+                                <button class="btn disabled" id="minusSpicyChicken">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-dash-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" />
+                                    </svg>
+                                </button>
+                            </span>
+                            <input type="text" id="countSpicyChicken" class="form-control" style="height: 30px" disabled
+                                placeholder="0" aria-label="Username" aria-describedby="basic-addon1">
+                            <span class="input-group-text" style="height: 30px" id="basic-addon2">
+                                <button class="btn" id="plusSpicyChicken">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                                    </svg>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6" style="margin-top:25px">
+                <div class="card flex-row"
+                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.486), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 40px;">
+                    <img class="card-img-sm-left justify-content-center" src="product/3.png" />
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Vietnamese Chili Lime Chicken <span
+                                class="badge rounded-pill bg-dark">1,900</span></h5>
+                        <div class="input-group">
+                            <span class="input-group-text" style="height: 30px" id="basic-addon1">
+                                <button class="btn disabled" id="minusVclChicken">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-dash-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" />
+                                    </svg>
+                                </button>
+                            </span>
+                            <input type="text" id="countVclChicken" class="form-control" style="height: 30px" disabled
+                                placeholder="0" aria-label="Username" aria-describedby="basic-addon1">
+                            <span class="input-group-text" style="height: 30px" id="basic-addon2">
+                                <button class="btn" id="plusVclChicken">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                                    </svg>
+                                </button>
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6" style="margin-top:25px">
+                <div class="card flex-row"
+                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.486), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 40px;">
+                    <img class="card-img-sm-left justify-content-center" style="height: 100px" src="product/2.png" />
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Colonel Burger <span class="badge rounded-pill bg-dark">3,300</span></h5>
+                        <div class="input-group">
+                            <span class="input-group-text" style="height: 30px" id="basic-addon1">
+                                <button class="btn disabled" id="minusCBurger">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-dash-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" />
+                                    </svg>
+                                </button>
+                            </span>
+                            <input type="text" id="countCBurger" class="form-control" style="height: 30px" disabled
+                                placeholder="0" aria-label="Username" aria-describedby="basic-addon1">
+                            <span class="input-group-text" style="height: 30px" id="basic-addon2">
+                                <button class="btn" id="plusCBurger">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                                    </svg>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6" style="margin-top:25px">
+                <div class="card flex-row"
+                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.486), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 40px;">
+                    <img class="card-img-sm-left justify-content-center" style="height: 100px" src="product/2.png" />
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Zinger Burger <span class="badge rounded-pill bg-dark">3,300</span></h5>
+                        <div class="input-group">
+                            <span class="input-group-text" style="height: 30px" id="basic-addon1">
+                                <button class="btn disabled" id="minusZBurger">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-dash-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" />
+                                    </svg>
+                                </button>
+                            </span>
+                            <input type="text" id="countZBurger" class="form-control" style="height: 30px" disabled
+                                placeholder="0" aria-label="Username" aria-describedby="basic-addon1">
+                            <span class="input-group-text" style="height: 30px" id="basic-addon2">
+                                <button class="btn" id="plusZBurger">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                                    </svg>
+                                </button>
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6" style="margin-top:25px">
+                <div class="card flex-row"
+                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.486), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 40px;">
+                    <img class="card-img-sm-left justify-content-center" style="height: 100px" src="product/4.png" />
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Popcorn Chicken <span class="badge rounded-pill bg-dark">1,900</span>
+                        </h5>
+                        <div class="input-group">
+                            <span class="input-group-text" style="height: 30px" id="basic-addon1">
+                                <button class="btn disabled" id="minusPopcornChicken">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-dash-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" />
+                                    </svg>
+                                </button>
+                            </span>
+                            <input type="text" id="countPopcornChicken" class="form-control" style="height: 30px"
+                                disabled placeholder="0" aria-label="Username" aria-describedby="basic-addon1">
+                            <span class="input-group-text" style="height: 30px" id="basic-addon2">
+                                <button class="btn" id="plusPopcornChicken">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                                    </svg>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6" style="margin-top:25px">
+                <div class="card flex-row"
+                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.486), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 40px;">
+                    <img class="card-img-sm-left justify-content-center" style="height: 100px" src="product/5.png" />
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Fries <span class="badge rounded-pill bg-dark">1,100</span></h5>
+                        <div class="input-group">
+                            <span class="input-group-text" style="height: 30px" id="basic-addon1">
+                                <button class="btn disabled" id="minusFries">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-dash-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" />
+                                    </svg>
+                                </button>
+                            </span>
+                            <input type="text" id="countFries" class="form-control disabled" style="height: 30px"
+                                placeholder="0" aria-label="Username" aria-describedby="basic-addon1">
+                            <span class="input-group-text" style="height: 30px" id="basic-addon2">
+                                <button class="btn" id="plusFries">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                                    </svg>
+                                </button>
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6" style="margin-top:25px">
+                <div class="card flex-row"
+                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.486), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 40px;">
+                    <img class="card-img-sm-left justify-content-center" style="height: 100px" src="product/6.png" />
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Egg Tart <span class="badge rounded-pill bg-dark">900</span></h5>
+                        <div class="input-group">
+                            <span class="input-group-text" style="height: 30px" id="basic-addon1">
+                                <button class="btn disabled" id="minusEggTart">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-dash-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" />
+                                    </svg>
+                                </button>
+                            </span>
+                            <input type="text" id="countEggTart" class="form-control disabled" style="height: 30px"
+                                placeholder="0" aria-label="Username" aria-describedby="basic-addon1">
+                            <span class="input-group-text" style="height: 30px" id="basic-addon2">
+                                <button class="btn" id="plusEggTart">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                                    </svg>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6" style="margin-top:25px">
+                <div class="card flex-row"
+                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.486), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 40px;">
+                    <img class="card-img-sm-left justify-content-center" style="height: 100px" src="product/7.png" />
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Iced Milo <span class="badge rounded-pill bg-dark">1,300</span></h5>
+                        <div class="input-group">
+                            <span class="input-group-text" style="height: 30px" id="basic-addon1">
+                                <button class="btn disabled" id="minusIcedMilo">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-dash-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" />
+                                    </svg>
+                                </button>
+                            </span>
+                            <input type="text" id="countIcedMilo" class="form-control disabled" style="height: 30px"
+                                placeholder="0" aria-label="Username" aria-describedby="basic-addon1">
+                            <span class="input-group-text" style="height: 30px" id="basic-addon2">
+                                <button class="btn" id="plusIcedMilo">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                                    </svg>
+                                </button>
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6" style="margin-top:25px">
+                <div class="card flex-row"
+                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.486), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 40px;">
+                    <img class="card-img-sm-left justify-content-center" style="height: 100px" src="product/8.png" />
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Iced Mocha <span class="badge rounded-pill bg-dark">1,500</span></h5>
+                        <div class="input-group">
+                            <span class="input-group-text" style="height: 30px" id="basic-addon1">
+                                <button class="btn disabled" id="minusIcedMocha">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-dash-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" />
+                                    </svg>
+                                </button>
+                            </span>
+                            <input type="text" id="countIcedMocha" class="form-control disabled" style="height: 30px"
+                                placeholder="0" aria-label="Username" aria-describedby="basic-addon1">
+                            <span class="input-group-text" style="height: 30px" id="basic-addon2">
+                                <button class="btn" id="plusIcedMocha">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                                    </svg>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6" style="margin-top:25px">
+                <div class="card flex-row"
+                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.486), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 40px;">
+                    <img class="card-img-sm-left justify-content-center" style="height: 100px" src="product/9.png" />
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Iced Chocolate <span class="badge rounded-pill bg-dark">1,500</span></h5>
+                        <div class="input-group">
+                            <span class="input-group-text" style="height: 30px" id="basic-addon1">
+                                <button class="btn disabled" id="minusIcedChocolate">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-dash-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" />
+                                    </svg>
+                                </button>
+                            </span>
+                            <input type="text" id="countIcedChocolate" class="form-control disabled"
+                                style="height: 30px" placeholder="0" aria-label="Username"
+                                aria-describedby="basic-addon1">
+                            <span class="input-group-text" style="height: 30px" id="basic-addon2">
+                                <button class="btn" id="plusIcedChocolate">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                                    </svg>
+                                </button>
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6" style="margin-top:25px">
+                <div class="card flex-row"
+                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.486), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 40px;">
+                    <img class="card-img-sm-left justify-content-center" style="height: 100px" src="product/10.png" />
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Coca Cola <span class="badge rounded-pill bg-dark">900</span></h5>
+                        <div class="input-group">
+                            <span class="input-group-text" style="height: 30px" id="basic-addon1">
+                                <button class="btn disabled" id="minusCocaCola">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-dash-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" />
+                                    </svg>
+                                </button>
+                            </span>
+                            <input type="text" id="countCocaCola" class="form-control disabled" style="height: 30px"
+                                placeholder="0" aria-label="Username" aria-describedby="basic-addon1">
+                            <span class="input-group-text" style="height: 30px" id="basic-addon2">
+                                <button class="btn" id="plusCocaCola">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                                    </svg>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+            var countOrignialChicken = 0;
+            var countSpicyChicken = 0;
+            var countVclChicken = 0;
+            var countCBurger = 0;
+            var countZBurger = 0;
+            var countPopcornChicken = 0;
+            var countFries = 0;
+            var countEggTart = 0;
+            var countIcedMilo = 0;
+            var countIcedMocha = 0;
+            var countIcedChocolate = 0;
+            var countCocaCola = 0;
+
+            var priceOrignialChicken = 1600;
+            var priceSpicyChicken = 1600;
+            var priceVclChicken = 1900;
+            var priceCBurger = 3300;
+            var priceZBurger = 3300;
+            var pricePopcornChicken = 1900;
+            var priceFries = 1100;
+            var priceEggTart = 900;
+            var priceIcedMilo = 1300;
+            var priceIcedMocha = 1500;
+            var priceIcedChocolate = 1500;
+            var priceCocaCola = 900;
+
+            var totalFoodie = 0;
+            var checkoutPrice = 0;
+
+            //Original Chicken
+            $("#plusOriginalChicken").click(function () {
+                $("#countOrignialChicken").attr("placeholder", countOrignialChicken).val(countOrignialChicken + 1).focus().blur();
+                countOrignialChicken++;
+
+                totalFoodie++;
+
+                $('#minusOriginalChicken').removeClass("disabled");
+
+                $("#shoppingCartMenuNumber").text(totalFoodie);
+
+
+
+                if ($("#totalAmountFood>div").hasClass("divOriginalChicken")) {
+                    $('.pOriginalChicken').text("Original Chicken x " + countOrignialChicken);
+                    checkoutPrice += priceOrignialChicken;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+                else {
+                    $('#totalAmountFood').append("<div class='row divOriginalChicken'><p class='fs-6 pOriginalChicken'>Original Chicken x " + countOrignialChicken + "</p></div>");
+                    checkoutPrice += priceOrignialChicken;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+            });
+
+            $('#minusOriginalChicken').click(function () {
+                $("#countOrignialChicken").attr("placeholder", countOrignialChicken).val(countOrignialChicken - 1).focus().blur();
+                countOrignialChicken--;
+
+                totalFoodie--;
+
+                if (countOrignialChicken == 0) {
+                    $('#minusOriginalChicken').addClass("disabled");
+                    $(".divOriginalChicken").remove();
+                    $("#shoppingCartMenuNumber").text(totalFoodie);
+
+                    checkoutPrice -= priceOrignialChicken;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+                else {
+                    checkoutPrice -= priceOrignialChicken;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+
+                    $('.pOriginalChicken').text("Original Chicken x " + countOrignialChicken);
+                    $("#shoppingCartMenuNumber").text(totalFoodie);
+                }
+            })
+
+            //Spicy Chicken
+            $("#plusSpicyChicken").click(function () {
+                $("#countSpicyChicken").attr("placeholder", countSpicyChicken).val(countSpicyChicken + 1).focus().blur();
+                countSpicyChicken++;
+
+                totalFoodie++;
+
+                $('#minusSpicyChicken').removeClass("disabled");
+
+                $("#shoppingCartMenuNumber").text(totalFoodie);
+
+
+
+                if ($("#totalAmountFood>div").hasClass("divSpicyChicken")) {
+                    $('.pSpicyChicken').text("Spicy Chicken x " + countSpicyChicken);
+                    checkoutPrice += priceSpicyChicken;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+                else {
+                    $('#totalAmountFood').append("<div class='row divSpicyChicken'><p class='fs-6 pSpicyChicken'>Spicy Chicken x " + countSpicyChicken + "</p></div>");
+                    checkoutPrice += priceSpicyChicken;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+            });
+
+            $('#minusSpicyChicken').click(function () {
+                $("#countSpicyChicken").attr("placeholder", countSpicyChicken).val(countSpicyChicken - 1).focus().blur();
+                countSpicyChicken--;
+
+                totalFoodie--;
+
+                if (countSpicyChicken == 0) {
+                    $('#minusSpicyChicken').addClass("disabled");
+                    $(".divSpicyChicken").remove();
+                    $("#shoppingCartMenuNumber").text(totalFoodie);
+
+                    checkoutPrice -= priceSpicyChicken;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+                else {
+                    checkoutPrice -= priceSpicyChicken;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+
+                    $('.pSpicyChicken').text("Spicy Chicken x " + countSpicyChicken);
+                    $("#shoppingCartMenuNumber").text(totalFoodie);
+                }
+            })
+
+            //VCL Chicken
+            $("#plusVclChicken").click(function () {
+                $("#countVclChicken").attr("placeholder", countVclChicken).val(countVclChicken + 1).focus().blur();
+                countVclChicken++;
+
+                totalFoodie++;
+
+                $('#minusVclChicken').removeClass("disabled");
+
+                $("#shoppingCartMenuNumber").text(totalFoodie);
+
+
+
+                if ($("#totalAmountFood>div").hasClass("divVclChicken")) {
+                    $('.pVclChicken').text("Vietnamese Chili Lime Chicken x " + countVclChicken);
+                    checkoutPrice += priceVclChicken;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+                else {
+                    $('#totalAmountFood').append("<div class='row divVclChicken'><p class='fs-6 pVclChicken'>Vietnamese Chili Lime Chicken x " + countVclChicken + "</p></div>");
+                    checkoutPrice += priceVclChicken;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+            });
+
+            $('#minusVclChicken').click(function () {
+                $("#countVclChicken").attr("placeholder", countVclChicken).val(countVclChicken - 1).focus().blur();
+                countVclChicken--;
+
+                totalFoodie--;
+
+                if (countVclChicken == 0) {
+                    $('#minusVclChicken').addClass("disabled");
+                    $(".divVclChicken").remove();
+                    $("#shoppingCartMenuNumber").text(totalFoodie);
+
+                    checkoutPrice -= priceVclChicken;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+                else {
+                    checkoutPrice -= priceVclChicken;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+
+                    $('.pVclChicken').text("Vietnamese Chili Lime Chicken x " + countVclChicken);
+                    $("#shoppingCartMenuNumber").text(totalFoodie);
+                }
+            })
+
+            //Colonel Burger
+            $("#plusCBurger").click(function () {
+                $("#countCBurger").attr("placeholder", countCBurger).val(countCBurger + 1).focus().blur();
+                countCBurger++;
+
+                totalFoodie++;
+
+                $('#minusCBurger').removeClass("disabled");
+
+                $("#shoppingCartMenuNumber").text(totalFoodie);
+
+
+
+                if ($("#totalAmountFood>div").hasClass("divCBurger")) {
+                    $('.pCBurger').text("Colonel Burger x " + countCBurger);
+                    checkoutPrice += priceCBurger;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+                else {
+                    $('#totalAmountFood').append("<div class='row divCBurger'><p class='fs-6 pCBurger'>Colonel Burger x " + countCBurger + "</p></div>");
+                    checkoutPrice += priceCBurger;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+            });
+
+            $('#minusCBurger').click(function () {
+                $("#countCBurger").attr("placeholder", countCBurger).val(countCBurger - 1).focus().blur();
+                countCBurger--;
+
+                totalFoodie--;
+
+                if (countCBurger == 0) {
+                    $('#minusCBurger').addClass("disabled");
+                    $(".divCBurger").remove();
+                    $("#shoppingCartMenuNumber").text(totalFoodie);
+
+                    checkoutPrice -= priceCBurger;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+                else {
+                    checkoutPrice -= priceCBurger;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+
+                    $('.pCBurger').text("Colonel Burger x " + countCBurger);
+                    $("#shoppingCartMenuNumber").text(totalFoodie);
+                }
+            })
+
+            //Zinger Burger
+            $("#plusZBurger").click(function () {
+                $("#countZBurger").attr("placeholder", countZBurger).val(countZBurger + 1).focus().blur();
+                countZBurger++;
+
+                totalFoodie++;
+
+                $('#minusZBurger').removeClass("disabled");
+
+                $("#shoppingCartMenuNumber").text(totalFoodie);
+
+
+
+                if ($("#totalAmountFood>div").hasClass("divZBurger")) {
+                    $('.pZBurger').text("Zinger Burger x " + countZBurger);
+                    checkoutPrice += priceZBurger;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+                else {
+                    $('#totalAmountFood').append("<div class='row divZBurger'><p class='fs-6 pZBurger'>Zinger Burger x " + countZBurger + "</p></div>");
+                    checkoutPrice += priceZBurger;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+            });
+
+            $('#minusZBurger').click(function () {
+                $("#countZBurger").attr("placeholder", countZBurger).val(countZBurger - 1).focus().blur();
+                countZBurger--;
+
+                totalFoodie--;
+
+                if (countZBurger == 0) {
+                    $('#minusZBurger').addClass("disabled");
+                    $(".divZBurger").remove();
+                    $("#shoppingCartMenuNumber").text(totalFoodie);
+
+                    checkoutPrice -= priceZBurger;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+                else {
+                    checkoutPrice -= priceZBurger;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+
+                    $('.pZBurger').text("Zinger Burger x " + countZBurger);
+                    $("#shoppingCartMenuNumber").text(totalFoodie);
+                }
+            })
+
+            //Popcorn Chicken
+            $("#plusPopcornChicken").click(function () {
+                $("#countPopcornChicken").attr("placeholder", countPopcornChicken).val(countPopcornChicken + 1).focus().blur();
+                countPopcornChicken++;
+
+                totalFoodie++;
+
+                $('#minusPopcornChicken').removeClass("disabled");
+
+                $("#shoppingCartMenuNumber").text(totalFoodie);
+
+
+
+                if ($("#totalAmountFood>div").hasClass("divPopcornChicken")) {
+                    $('.pPopcornChicken').text("Popcorn Chicken x " + countPopcornChicken);
+                    checkoutPrice += pricePopcornChicken;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+                else {
+                    $('#totalAmountFood').append("<div class='row divPopcornChicken'><p class='fs-6 pPopcornChicken'>Popcorn Chicken x " + countPopcornChicken + "</p></div>");
+                    checkoutPrice += pricePopcornChicken;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+            });
+
+            $('#minusPopcornChicken').click(function () {
+                $("#countPopcornChicken").attr("placeholder", countPopcornChicken).val(countPopcornChicken - 1).focus().blur();
+                countPopcornChicken--;
+
+                totalFoodie--;
+
+                if (countPopcornChicken == 0) {
+                    $('#minusPopcornChicken').addClass("disabled");
+                    $(".divPopcornChicken").remove();
+                    $("#shoppingCartMenuNumber").text(totalFoodie);
+
+                    checkoutPrice -= pricePopcornChicken;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+                else {
+                    checkoutPrice -= pricePopcornChicken;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+
+                    $('.pPopcornChicken').text("Popcorn Chicken x " + countPopcornChicken);
+                    $("#shoppingCartMenuNumber").text(totalFoodie);
+                }
+            })
+
+            //Fries
+            $("#plusFries").click(function () {
+                $("#countFries").attr("placeholder", countFries).val(countFries + 1).focus().blur();
+                countFries++;
+
+                totalFoodie++;
+
+                $('#minusFries').removeClass("disabled");
+
+                $("#shoppingCartMenuNumber").text(totalFoodie);
+
+
+
+                if ($("#totalAmountFood>div").hasClass("divFries")) {
+                    $('.pFries').text("Fries x " + countFries);
+                    checkoutPrice += priceFries;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+                else {
+                    $('#totalAmountFood').append("<div class='row divFries'><p class='fs-6 pFries'>Fries x " + countFries + "</p></div>");
+                    checkoutPrice += priceFries;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+            });
+
+            $('#minusFries').click(function () {
+                $("#countFries").attr("placeholder", countFries).val(countFries - 1).focus().blur();
+                countFries--;
+
+                totalFoodie--;
+
+                if (countFries == 0) {
+                    $('#minusFries').addClass("disabled");
+                    $(".divFries").remove();
+                    $("#shoppingCartMenuNumber").text(totalFoodie);
+
+                    checkoutPrice -= priceFries;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+                else {
+                    checkoutPrice -= priceFries;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+
+                    $('.pFries').text("Fries x " + countFries);
+                    $("#shoppingCartMenuNumber").text(totalFoodie);
+                }
+            })
+
+            //Egg Tart
+            $("#plusEggTart").click(function () {
+                $("#countEggTart").attr("placeholder", countEggTart).val(countEggTart + 1).focus().blur();
+                countEggTart++;
+
+                totalFoodie++;
+
+                $('#minusEggTart').removeClass("disabled");
+
+                $("#shoppingCartMenuNumber").text(totalFoodie);
+
+
+
+                if ($("#totalAmountFood>div").hasClass("divEggTart")) {
+                    $('.pEggTart').text("Egg Tart x " + countEggTart);
+                    checkoutPrice += priceEggTart;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+                else {
+                    $('#totalAmountFood').append("<div class='row divEggTart'><p class='fs-6 pEggTart'>Egg Tart x " + countEggTart + "</p></div>");
+                    checkoutPrice += priceEggTart;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+            });
+
+            $('#minusEggTart').click(function () {
+                $("#countEggTart").attr("placeholder", countEggTart).val(countEggTart - 1).focus().blur();
+                countEggTart--;
+
+                totalFoodie--;
+
+                if (countEggTart == 0) {
+                    $('#minusEggTart').addClass("disabled");
+                    $(".divEggTart").remove();
+                    $("#shoppingCartMenuNumber").text(totalFoodie);
+
+                    checkoutPrice -= priceEggTart;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+                else {
+                    checkoutPrice -= priceEggTart;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+
+                    $('.pEggTart').text("Egg Tart x " + countEggTart);
+                    $("#shoppingCartMenuNumber").text(totalFoodie);
+                }
+            })
+
+            //Iced Milo
+            $("#plusIcedMilo").click(function () {
+                $("#countIcedMilo").attr("placeholder", countIcedMilo).val(countIcedMilo + 1).focus().blur();
+                countIcedMilo++;
+
+                totalFoodie++;
+
+                $('#minusIcedMilo').removeClass("disabled");
+
+                $("#shoppingCartMenuNumber").text(totalFoodie);
+
+
+
+                if ($("#totalAmountFood>div").hasClass("divIcedMilo")) {
+                    $('.pIcedMilo').text("Iced Milo x " + countIcedMilo);
+                    checkoutPrice += priceIcedMilo;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+                else {
+                    $('#totalAmountFood').append("<div class='row divIcedMilo'><p class='fs-6 pIcedMilo'>Iced Milo x " + countIcedMilo + "</p></div>");
+                    checkoutPrice += priceIcedMilo;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+            });
+
+            $('#minusIcedMilo').click(function () {
+                $("#countIcedMilo").attr("placeholder", countIcedMilo).val(countIcedMilo - 1).focus().blur();
+                countIcedMilo--;
+
+                totalFoodie--;
+
+                if (countIcedMilo == 0) {
+                    $('#minusIcedMilo').addClass("disabled");
+                    $(".divIcedMilo").remove();
+                    $("#shoppingCartMenuNumber").text(totalFoodie);
+
+                    checkoutPrice -= priceIcedMilo;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+                else {
+                    checkoutPrice -= priceIcedMilo;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+
+                    $('.pIcedMilo').text("Iced Milo x " + countIcedMilo);
+                    $("#shoppingCartMenuNumber").text(totalFoodie);
+                }
+            })
+
+            //Iced Mocha
+            $("#plusIcedMocha").click(function () {
+                $("#countIcedMocha").attr("placeholder", countIcedMocha).val(countIcedMocha + 1).focus().blur();
+                countIcedMocha++;
+
+                totalFoodie++;
+
+                $('#minusIcedMocha').removeClass("disabled");
+
+                $("#shoppingCartMenuNumber").text(totalFoodie);
+
+
+
+                if ($("#totalAmountFood>div").hasClass("divIcedMocha")) {
+                    $('.pIcedMocha').text("Iced Mocha x " + countIcedMocha);
+                    checkoutPrice += priceIcedMocha;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+                else {
+                    $('#totalAmountFood').append("<div class='row divIcedMocha'><p class='fs-6 pIcedMocha'>Iced Mocha x " + countIcedMocha + "</p></div>");
+                    checkoutPrice += priceIcedMocha;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+            });
+
+            $('#minusIcedMocha').click(function () {
+                $("#countIcedMocha").attr("placeholder", countIcedMocha).val(countIcedMocha - 1).focus().blur();
+                countIcedMocha--;
+
+                totalFoodie--;
+
+                if (countIcedMocha == 0) {
+                    $('#minusIcedMocha').addClass("disabled");
+                    $(".divIcedMocha").remove();
+                    $("#shoppingCartMenuNumber").text(totalFoodie);
+
+                    checkoutPrice -= priceIcedMocha;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+                else {
+                    checkoutPrice -= priceIcedMocha;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+
+                    $('.pIcedMocha').text("Iced Mocha x " + countIcedMocha);
+                    $("#shoppingCartMenuNumber").text(totalFoodie);
+                }
+            })
+
+            //Iced Chocolate
+            $("#plusIcedChocolate").click(function () {
+                $("#countIcedChocolate").attr("placeholder", countIcedChocolate).val(countIcedChocolate + 1).focus().blur();
+                countIcedChocolate++;
+
+                totalFoodie++;
+
+                $('#minusIcedChocolate').removeClass("disabled");
+
+                $("#shoppingCartMenuNumber").text(totalFoodie);
+
+
+
+                if ($("#totalAmountFood>div").hasClass("divIcedChocolate")) {
+                    $('.pIcedChocolate').text("Iced Chocolate x " + countIcedChocolate);
+                    checkoutPrice += priceIcedChocolate;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+                else {
+                    $('#totalAmountFood').append("<div class='row divIcedChocolate'><p class='fs-6 pIcedChocolate'>Iced Chocolate x " + countIcedChocolate + "</p></div>");
+                    checkoutPrice += priceIcedChocolate;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+            });
+
+            $('#minusIcedChocolate').click(function () {
+                $("#countIcedChocolate").attr("placeholder", countIcedChocolate).val(countIcedChocolate - 1).focus().blur();
+                countIcedChocolate--;
+
+                totalFoodie--;
+
+                if (countIcedChocolate == 0) {
+                    $('#minusIcedChocolate').addClass("disabled");
+                    $(".divIcedChocolate").remove();
+                    $("#shoppingCartMenuNumber").text(totalFoodie);
+
+                    checkoutPrice -= priceIcedChocolate;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+                else {
+                    checkoutPrice -= priceIcedChocolate;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+
+                    $('.pIcedChocolate').text("Iced Chocolate x " + countIcedChocolate);
+                    $("#shoppingCartMenuNumber").text(totalFoodie);
+                }
+            })
+
+            //Coca Cola
+            $("#plusCocaCola").click(function () {
+                $("#countCocaCola").attr("placeholder", countCocaCola).val(countCocaCola + 1).focus().blur();
+                countCocaCola++;
+
+                totalFoodie++;
+
+                $('#minusCocaCola').removeClass("disabled");
+
+                $("#shoppingCartMenuNumber").text(totalFoodie);
+
+
+
+                if ($("#totalAmountFood>div").hasClass("divCocaCola")) {
+                    $('.pCocaCola').text("Coca Cola x " + countCocaCola);
+                    checkoutPrice += priceCocaCola;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+                else {
+                    $('#totalAmountFood').append("<div class='row divCocaCola'><p class='fs-6 pCocaCola'>Coca Cola x " + countCocaCola + "</p></div>");
+                    checkoutPrice += priceCocaCola;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+            });
+
+            $('#minusCocaCola').click(function () {
+                $("#countCocaCola").attr("placeholder", countCocaCola).val(countCocaCola - 1).focus().blur();
+                countCocaCola--;
+
+                totalFoodie--;
+
+                if (countCocaCola == 0) {
+                    $('#minusCocaCola').addClass("disabled");
+                    $(".divCocaCola").remove();
+                    $("#shoppingCartMenuNumber").text(totalFoodie);
+
+                    checkoutPrice -= priceCocaCola;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+                }
+                else {
+                    checkoutPrice -= priceCocaCola;
+                    $('.checkoutPrice').text("Total Amount: " + checkoutPrice);
+
+                    $('.pCocaCola').text("Coca Cola x " + countCocaCola);
+                    $("#shoppingCartMenuNumber").text(totalFoodie);
+                }
+            })
+
+            function numberWithCommas(number) {
+                var parts = number.toString().split(".");
+                parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                return parts.join(".");
+            }
+
+            $('#btnCopy').on('click', function () {
+
+                $('#copyTextToUser').text("Total Amount: " + numberWithCommas(checkoutPrice) + "\n");
+
+                if (countOrignialChicken != 0) {
+                    $('#copyTextToUser').append("\nOriginal Chicken x " + countOrignialChicken);
+                }
+
+                if (countSpicyChicken != 0) {
+                    $('#copyTextToUser').append("\nSpicy Chicken x " + countSpicyChicken);
+                }
+
+                if (countVclChicken != 0) {
+                    $('#copyTextToUser').append("\nVietnamese Chili Lime Chicken x " + countVclChicken);
+                }
+
+                if (countCBurger != 0) {
+                    $('#copyTextToUser').append("\nColonel Burger x " + countCBurger);
+                }
+
+                if (countZBurger != 0) {
+                    $('#copyTextToUser').append("\nZinger Burger x " + countZBurger);
+                }
+
+                if (countPopcornChicken != 0) {
+                    $('#copyTextToUser').append("\nPopcorn Chicken x " + countPopcornChicken);
+                }
+
+                if (countFries != 0) {
+                    $('#copyTextToUser').append("\nFries x " + countFries);
+                }
+
+                if (countEggTart != 0) {
+                    $('#copyTextToUser').append("\nEgg Tart x " + countEggTart);
+                }
+
+                if (countIcedMilo != 0) {
+                    $('#copyTextToUser').append("\nIced Milo x " + countIcedMilo);
+                }
+
+                if (countIcedMocha != 0) {
+                    $('#copyTextToUser').append("\nIced Mocha x " + countIcedMocha);
+                }
+
+                if (countIcedChocolate != 0) {
+                    $('#copyTextToUser').append("\nIced Chocolate x " + countIcedChocolate);
+                }
+
+                if (countCocaCola != 0) {
+                    $('#copyTextToUser').append("\nCoca Cola x " + countCocaCola);
+                }
+
+                $('#copyTextToUser').append("\n\n⚠️Delivery ဖိုးမပါ၀င်")
+                $('#copyTextToUser').select();
+                document.execCommand('copy');
+            });
+
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
